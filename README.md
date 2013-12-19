@@ -11,7 +11,8 @@ with most parallel port receipt printers that use the ESC/POS Communication mode
 Place this Thermal_Printer_I2C directory in your Arduino libraries directory, before you 
 start the Arduino IDE. 
 
-////ARDUINO LIBRARY LOCATION////
+ARDUINO LIBRARY LOCATION:
+
 *On your Mac:: In (home directory)/Documents/Arduino/Libraries
 *On your PC:: My Documents\Arduino\libraries
 *On your Linux box: (home directory)/sketchbook/libraries
