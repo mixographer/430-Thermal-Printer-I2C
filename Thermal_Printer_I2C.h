@@ -42,7 +42,9 @@ class Thermal_Printer_I2C : public Print
         void printSize(byte fontsize);
         void upsideDown();
         void notUpsideDown();
-        size_t write(uint8_t data) { printChar(data);  return 1; }
+        virtual size_t write(uint8_t data);
+        virtual size_t write(const char *str);
+        //size_t write(uint8_t data);// { printChar(data);  return 1; }
     private:
         int _busyPin;
         int _strobePin;
