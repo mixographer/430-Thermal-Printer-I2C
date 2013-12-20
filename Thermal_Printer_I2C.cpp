@@ -20,11 +20,11 @@
 
 
 Thermal_Printer_I2C::Thermal_Printer_I2C(int strobePin, int busyPin, byte i2c_addr){
-    //Wire.begin(i2c_addr);
-    //pinMode(strobePin, OUTPUT);
-    //pinMode(busyPin, INPUT);
-    //digitalWrite(strobePin, HIGH);
-    //initializePrinter();
+    Wire.begin(i2c_addr);
+    pinMode(strobePin, OUTPUT);
+    pinMode(busyPin, INPUT);
+    digitalWrite(strobePin, HIGH);
+    initializePrinter();
     _strobeWait = 10;
     _busyPin = busyPin;
     _strobePin = strobePin;
