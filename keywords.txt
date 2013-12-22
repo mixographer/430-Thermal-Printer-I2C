@@ -9,30 +9,30 @@
 // Released to the public domain. Thanks to Rob Tillaart for helping me get this started. 
 //
 
-Thermal_Printer_I2C	KEYWORD1
+Thermal_Printer_I2C        KEYWORD1
 #
-printChar	KEYWORD2
-begin	KEYWORD2
-write	KEYWORD2     
-waitForPrinter	KEYWORD2
-doStrobe	KEYWORD2
-setData	KEYWORD2
-initializePrinter	KEYWORD2
-alignCenter	KEYWORD2
-alignRight	KEYWORD2
-alignLeft	KEYWORD2
-underline	KEYWORD2
-thickUnderline	KEYWORD2
-noUnderline	KEYWORD2
-doCut	KEYWORD2
-doBuzzer	KEYWORD2
-fontA	KEYWORD2
-fontB	KEYWORD2
-lineFeed	KEYWORD2
-boldOn	KEYWORD2
-boldOff	KEYWORD2
-inverse	KEYWORD2
-notInverse	KEYWORD2
-printSize	KEYWORD2
-upsideDown	KEYWORD2
-notUpsideDown  	KEYWORD2
+printChar        KEYWORD2
+begin        KEYWORD2
+write        KEYWORD2     
+waitForPrinter        KEYWORD2
+doStrobe        KEYWORD2
+setData        KEYWORD2
+initializePrinter        KEYWORD2
+alignCenter        KEYWORD2
+alignRight        KEYWORD2
+alignLeft        KEYWORD2
+underline        KEYWORD2
+thickUnderline        KEYWORD2
+noUnderline        KEYWORD2
+doCut        KEYWORD2
+doBuzzer        KEYWORD2
+fontA        KEYWORD2
+fontB        KEYWORD2
+lineFeed        KEYWORD2
+boldOn        KEYWORD2
+boldOff        KEYWORD2
+inverse        KEYWORD2
+notInverse        KEYWORD2
+printSize        KEYWORD2
+upsideDown        KEYWORD2
+notUpsideDown          KEYWORD2
