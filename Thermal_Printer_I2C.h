@@ -1,3 +1,14 @@
+//
+//    FILE:  Thermal_Printer_I2C.h
+//  AUTHOR:  Jimmy Patrick
+// VERSION:  0.0.11
+// PURPOSE:  Controls a Parallel Printer through a PFC8574
+//    DATE:  2013-12-18
+//     URL:
+//
+// Released to the public domain. Thanks to Rob Tillaart for helping me get this started. 
+//
+
 #ifndef Thermal_Printer_I2C_h
 #define Thermal_Printer_I2C_h
 
