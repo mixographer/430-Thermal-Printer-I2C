@@ -51,6 +51,13 @@ void printDemo(){
     printer.println(" Thick underline");
     printer.lineFeed(1);
     printer.noUnderline();
+    printer.lineFeed(2);
+    
+    //print floats
+    float myPI = 3.14159265; 
+    printer.print(myPI, 6);
+    printer.lineFeed(2);
+    
     //Hello World.
     printer.print("Hello World!");
     printer.lineFeed(10);
@@ -66,4 +73,4 @@ void loop(){
        goOnce = 0;
        }
 }
-}
+
