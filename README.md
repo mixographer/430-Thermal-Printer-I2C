@@ -10,7 +10,7 @@ This is an Arduino Library to use with Parallel-interfaced Thermal Printers. I u
 a PFC8574 I/O Expander to communicate with the Parallel port. This code should work 
 with most parallel port receipt printers that use the ESC/POS Communication mode. 
 
-Place this Thermal_Printer_I2C directory in your Arduino libraries directory, before you 
+Rename this directory 'Thermal_Printer_I2C' in your Arduino libraries directory, before you 
 start the Arduino IDE. 
 
 ARDUINO LIBRARY LOCATION:
@@ -20,3 +20,13 @@ ARDUINO LIBRARY LOCATION:
 *On your PC:: My Documents\Arduino\libraries
 
 *On your Linux box: (home directory)/sketchbook/libraries
+
+
+---------------------------------------
+
+The example sketches show usage details. Supports Bold, underline, font size, fonta and fontb, 
+upsidedown printing, bell, and more. 
+
+This uses an I/O expander, but should be easily adapted to using I/O pins through port manipulation. 
+
+Thanks to Rob Tillaart on the Arduino Forum for helping me get this started. 
