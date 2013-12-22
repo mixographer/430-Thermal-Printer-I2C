@@ -1,12 +1,12 @@
 //
 //    FILE:  Thermal_Printer_I2C.cpp
 //  AUTHOR:  Jimmy Patrick
-// VERSION:  0.0.01
+// VERSION:  0.0.10
 // PURPOSE:  Controls a Parallel Printer through a PFC8574
 //    DATE:  2013-12-18
 //     URL:
 //
-// Released to the public domain
+// Released to the public domain. Thanks to Rob Tillaart for helping me get this started. 
 //
 
 
@@ -15,25 +15,34 @@
 #include "Wire.h"
 
 
-#define ESCAPE 0x1B;
-#define GS 0x1D;
 
-
-Thermal_Printer_I2C::Thermal_Printer_I2C(int strobePin, int busyPin, byte i2c_addr){
-    Wire.begin(i2c_addr);
-    pinMode(strobePin, OUTPUT);
-    pinMode(busyPin, INPUT);
-    digitalWrite(strobePin, HIGH);
-    initializePrinter();
-    _strobeWait = 10;
-    _busyPin = busyPin;
-    _strobePin = strobePin;
-    _i2c_addr = i2c_addr;
-    delay(500);
+Thermal_Printer_I2C::Thermal_Printer_I2C(){
     }
     
     
+void Thermal_Printer_I2C::begin(int strobePin, int busyPin, byte i2cAddress){
+    Wire.begin(i2cAddress);
+    pinMode(strobePin, OUTPUT);
+    pinMode(busyPin, INPUT);
+    digitalWrite(busyPin, LOW);
+    digitalWrite(strobePin, HIGH);
+    printChar((byte)0x1B);
+    printChar((byte)0x40);
+    delay(200);
+    }
     
+void Thermal_Printer_I2C::printChar(uint8_t toPrint){
+  Wire.beginTransmission(0x20);
+  Wire.write(toPrint);
+  Wire.endTransmission();
+  digitalWrite(10, LOW);
+  delayMicroseconds(10);
+  digitalWrite(10, HIGH);
+  delay(1);
+}
+
+// these are all the features I'm trying to add:
+
 void Thermal_Printer_I2C::waitForPrinter(int port){
   while(digitalRead(port) == 1){
      // wait for busy to go low
@@ -41,23 +50,20 @@ void Thermal_Printer_I2C::waitForPrinter(int port){
 }
 
 void Thermal_Printer_I2C::doStrobe(){
-  digitalWrite(_strobePin, LOW);
-  delayMicroseconds(_strobeWait);
-  digitalWrite(_strobePin, HIGH);
+  digitalWrite(10, LOW);
+  delayMicroseconds(10);
+  digitalWrite(10, HIGH);
   }
   
 void Thermal_Printer_I2C::setData(char text){
-  Wire.beginTransmission(_i2c_addr);
+  Wire.beginTransmission(0x20);
   Wire.write(text);
   Wire.endTransmission();
+  delayMicroseconds(20);
   doStrobe();
 }
 
-void Thermal_Printer_I2C::printChar(char toPrint){
-  waitForPrinter(_busyPin);
-  setData(toPrint);
-  doStrobe();  
-}
+
 
 void Thermal_Printer_I2C::initializePrinter(){
   printChar((byte)0x1B);
@@ -117,6 +123,7 @@ void Thermal_Printer_I2C::doBuzzer(int repeat){
   } 
 }
 
+
 //Select  the font. Valid params are 0 or 1
 void Thermal_Printer_I2C::fontA(){
   printChar((byte)0x1B);
@@ -131,7 +138,7 @@ void Thermal_Printer_I2C::fontB(){
 }
 
 //Line feed (the number of lines to feed) 
-void Thermal_Printer_I2C::lineFeed(int lines){
+void Thermal_Printer_I2C::lineFeed(uint8_t lines){
   printChar((byte)0x1B);
   printChar((byte)0x64);
   printChar(lines);
@@ -182,13 +189,14 @@ void Thermal_Printer_I2C::notUpsideDown(){
   printChar((byte)0x7B);
   printChar(0);
 }
+// to here
 
-size_t Thermal_Printer_I2C::write(uint8_t data){
-  printChar(data);
-  return 1; 
+
+
+
+
+size_t Thermal_Printer_I2C::write(uint8_t c){
+    printChar(c);
+    return 1; 
 }
 
-size_t Thermal_Printer_I2C::write(const char *str){
-   printChar(*str);
-   return 1; 
-   }	
