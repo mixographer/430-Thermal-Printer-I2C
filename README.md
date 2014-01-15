@@ -1,10 +1,12 @@
-Thermal-Printer-I2C
+430-Thermal-Printer-I2C
 ===================
 
-Arduino Library for Parallel Printers with Arduno and PFC8574 I/O Expanders or Shift Registers.
+THIS IS A WORK IN PROGRESS, I HAVE NOT TESTED THIS YET IN ENERGIA!!!
+
+Energia Library for Parallel Printers with  launchpad and PFC8574 I/O Expanders or Shift Registers.
 ___________________________________________________________________________
  
-This is an Arduino Library to use with Parallel-interfaced Thermal Printers. I used 
+This is a Energia Library to use with Parallel-interfaced Thermal Printers. I used 
 a PFC8574 I/O Expander to communicate with the Parallel port. This code should work 
 with most parallel port receipt printers that use the ESC/POS Communication mode. 
 
@@ -15,16 +17,8 @@ I have also added a library and example file that works with a standard 74HC595 
 register. If you are tight on space, you might use the 595 (SR) version, it uses less memory
 than the Wire Library (I2C) version. 
 
-Rename this directory 'Thermal_Printer_I2C' in your Arduino libraries directory, before you 
-start the Arduino IDE. 
-
-ARDUINO LIBRARY LOCATION:
-
-*On your Mac:: In (home directory)/Documents/Arduino/Libraries
-
-*On your PC:: My Documents\Arduino\libraries
-
-*On your Linux box: (home directory)/sketchbook/libraries
+Rename this directory '430_Thermal_Printer_I2C' in your Energia libraries directory, before you 
+start the Energia IDE. 
 
 
 ---------------------------------------

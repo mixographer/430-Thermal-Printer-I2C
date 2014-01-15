@@ -10,7 +10,7 @@
 //
 
 
-#include "Arduino.h"
+#include "Energia.h"
 #include "Thermal_Printer_SR.h"
 
 

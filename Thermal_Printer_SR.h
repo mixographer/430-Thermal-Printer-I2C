@@ -12,7 +12,7 @@
 #ifndef Thermal_Printer_SR_h
 #define Thermal_Printer_SR_h
 
-#include "Arduino.h"
+#include "Energia.h"
 #include <Print.h>
 
 

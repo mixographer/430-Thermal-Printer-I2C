@@ -12,7 +12,7 @@
 #ifndef Thermal_Printer_I2C_h
 #define Thermal_Printer_I2C_h
 
-#include "Arduino.h"
+#include "Energia.h"
 #include <Print.h>
 
 class Thermal_Printer_I2C : public Print

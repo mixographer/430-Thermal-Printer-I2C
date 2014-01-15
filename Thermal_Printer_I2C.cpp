@@ -9,8 +9,7 @@
 // Released to the public domain. Thanks to Rob Tillaart for helping me get this started. 
 //
 
-
-#include "Arduino.h"
+#include "Energia.h"
 #include "Thermal_Printer_I2C.h"
 #include "Wire.h"
 
