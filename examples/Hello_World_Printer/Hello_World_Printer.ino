@@ -3,7 +3,7 @@
 
 boolean goOnce = 1;
 
-Thermal_Printer_I2C printer(10, 11, 0x20);
+Thermal_Printer_I2C printer; 
 
 void setup(){
    printer.begin(10, 11, 0x20);
