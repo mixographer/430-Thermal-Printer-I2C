@@ -1,7 +1,7 @@
 //
 //    FILE:  Thermal_Printer_SR.cpp
 //  AUTHOR:  Jimmy Patrick
-// VERSION:  0.0.01
+// VERSION:  0.0.02
 // PURPOSE:  Controls a Parallel Printer through a 595 Shift Register
 //    DATE:  2013-12-18
 //     URL:
@@ -34,6 +34,7 @@ void Thermal_Printer_SR::begin(int latchPin, int dataPin, int clockPin, int stro
     _latchPin = latchPin;
     _clockPin = clockPin;
     _dataPin = dataPin;
+    _busyPin = busyPin;
     delay(200);
     }
     
@@ -44,7 +45,7 @@ void Thermal_Printer_SR::printChar(uint8_t toPrint){
     shiftOut(_dataPin, _clockPin, MSBFIRST, toPrint);
     digitalWrite(_latchPin, HIGH);
   //Then pulse the strobe here:
-    waitForPrinter(12);
+    waitForPrinter(_busyPin);
     digitalWrite(10, LOW);
   //delayMicroseconds(100);
     digitalWrite(10, HIGH);
