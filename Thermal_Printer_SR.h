@@ -50,6 +50,7 @@ class Thermal_Printer_SR : public Print
         int _latchPin;
         int _dataPin;
         int _clockPin;
+        int _busyPin;
     
     
     
